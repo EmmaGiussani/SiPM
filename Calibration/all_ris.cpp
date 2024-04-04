@@ -22,7 +22,7 @@ int main (int argc, char ** argv)
 	      	return 1;
     	}
     	
-    	gStyle->SetOptFit(1112);	
+    	gStyle->SetOptFit(0);	
     	
     	TApplication* myApp = new TApplication("myApp", NULL, NULL);
   	TCanvas* myC = new TCanvas("myC","myC",0,0,700,500);
@@ -55,12 +55,34 @@ int main (int argc, char ** argv)
   	myGraph3-> SetTitle("CsI curve");
   	myGraph3->SetLineColor(kAzure+5);
   	
+  	TF1* myFun = new TF1 ("myFun","[0]/sqrt(x)+[1]");
+  	myFun->SetParName(0,"k");
+  	myFun->SetParName(1,"q");
+  	TF1* myFun1 = new TF1 ("myFun1","[0]/sqrt(x)+[1]");
+  	myFun1->SetParName(0,"k");
+  	myFun1->SetParName(1,"q");
+  	TF1* myFun2 = new TF1 ("myFun2","[0]/sqrt(x)+[1]");
+  	myFun2->SetParName(0,"k");
+  	myFun2->SetParName(1,"q");
+  	
+  	myFun->SetLineColor(kOrange);
+	myFun1->SetLineColor(kRed-4);
+	myFun2->SetLineColor(kAzure+5);
 
 	// disegno
 	myC->cd();
+	myGraph1->Fit("myFun");
+	myGraph2->Fit("myFun1");
+	myGraph3->Fit("myFun2");
+	
+	
 	mg->Add(myGraph1);
 	mg->Add(myGraph2);
 	mg->Add(myGraph3);
+	
+	myFun->Draw("same");
+	myFun1->Draw("same");
+	myFun2->Draw("same");
 	
 	mg->GetXaxis()->SetTitle("Energy [keV]");
   	mg->GetYaxis()->SetTitle("Energy Resolution R");
