@@ -36,6 +36,7 @@ int main (int argc, char ** argv)
   	// funzione per il fit  
   	
   	/*
+   	//Partial Fit
   	TF1 *g1 = new TF1("g1", "-[2]*[3]*1/(0.64*[0]+0.36*[1])*exp(-(x+[5])/([4]*[3]))+[3]*[2]*((exp(-(x+[5])/[0]))/[0]*0.64 + (exp(-(x+[5])/[1]))/[1]*0.36)", -0.0000002, 0.000005);
   	g1->SetParName(0,"#tau_{scint1}");
   	g1->SetParName(1,"#tau_{scint2}");
@@ -53,7 +54,7 @@ int main (int argc, char ** argv)
   	g1->SetLineColor(kRed);
   	*/
   	
-  	
+  	//Total Fit
   	TF1 *g1 = new TF1("g1", "-[2]*[3]*1/(0.64*[0]+0.36*[1])*exp(-(x+[5])/([4]*[3]))+[2]*[3]*1/(0.64*[0]+0.36*[1])*((exp(-(x+[5])/[0]))/[0]*0.64 + (exp(-(x+[5])/[1]))/[1]*0.36)", -0.00000028, 0.000005);
   	g1->SetParName(0,"#tau_{scint1}");
   	g1->SetParName(1,"#tau_{scint2}");
