@@ -49,14 +49,6 @@ int main (int argc, char ** argv)
   	g1->SetParameter(3, 8.21101e-08);
   	g1->SetLineColor(kRed);
   	
-  	/*
-   	//Partial Fit
-	TF1 *g2 = new TF1("g2", "[0]/[1]*exp(-x/[0])", 0.000000075, 0.00000035);
-	g2->SetParName(0,"RC");
-  	g2->SetParName(1,"Q/C");
-  	g2->SetParameter(0, 0.000001);
-  	*/
-
 
 	// disegno
 	myC->cd();
