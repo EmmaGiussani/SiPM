@@ -35,7 +35,9 @@ int main (int argc, char ** argv)
   	myGraph->GetYaxis()->SetTitle("Tension [V]");
 
   	
-  	// funzione per il fit  	
+  	// funzione per il fit 
+
+	//Total Fit
   	TF1 *g1 = new TF1("g1", "[1]/[3]*(-exp(-x/[0])+exp(-x/([2]*[3])))", -0.000000003, 0.0000005);
   	g1->SetParName(0,"#tau_{scint} [s]");
   	g1->SetParameter(0, 3.90455e-08);
@@ -48,15 +50,11 @@ int main (int argc, char ** argv)
   	g1->SetLineColor(kRed);
   	
   	/*
+   	//Partial Fit
 	TF1 *g2 = new TF1("g2", "[0]/[1]*exp(-x/[0])", 0.000000075, 0.00000035);
 	g2->SetParName(0,"RC");
   	g2->SetParName(1,"Q/C");
   	g2->SetParameter(0, 0.000001);
-  	
-	TF1 *g3 = new TF1("g3", "[0]/[1]*exp(-x/[0])", 0.00000035, 0.0000009);
-	g3->SetParName(0,"RC");
-  	g3->SetParName(1,"Q/C");
-  	g3->SetParameter(0, 0.000001);
   	*/
 
 
